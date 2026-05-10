@@ -1,0 +1,40 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 20,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "msvc",
+      "displayName": "MSVC",
+      "description": "Configure with the Visual Studio generator.",
+      "generator": "Visual Studio 17 2022",
+      "binaryDir": "${sourceDir}/build/msvc",
+      "architecture": {
+        "value": "x64",
+        "strategy": "external"
+      }
+    },
+    {
+      "name": "mingw",
+      "displayName": "MinGW",
+      "description": "Configure with MinGW Makefiles. Requires gcc and g++ on PATH.",
+      "generator": "MinGW Makefiles",
+      "binaryDir": "${sourceDir}/build/mingw"
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "build-msvc-release",
+      "configurePreset": "msvc",
+      "configuration": "Release"
+    },
+    {
+      "name": "build-mingw-release",
+      "configurePreset": "mingw",
+      "configuration": "Release"
+    }
+  ]
+}
