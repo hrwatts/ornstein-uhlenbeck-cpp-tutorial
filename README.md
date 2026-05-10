@@ -14,23 +14,11 @@ This repository is designed for learners and practitioners who want a compact,
 readable reference for simulating a mean-reverting stochastic process in modern
 C++. The current scope is tutorial-first:
 
-- one main Ornstein-Uhlenbeck example (`ou_tutorial`)
-- one plotting smoke-check example (`minimal_plot`)
-- documentation that explains both the model and build/runtime expectations
 
 It is intentionally not a general-purpose quantitative finance library.
 
 ## What This Repository Contains
 
-- `src/main.cpp`: the tutorial implementation of the Ornstein-Uhlenbeck simulation.
-- `examples/minimal_plot.cpp`: a minimal plotting check for `matplotlib-cpp`.
-- `third_party/matplotlibcpp.h`: the vendored plotting header used by the examples.
-- `docs/tutorial.md`: a short walkthrough of the model, parameters, and build process.
-- `docs/setup.md`: OS-specific environment setup notes.
-- `docs/build-by-platform.md`: build commands for common platforms.
-- `docs/troubleshooting.md`: common build and runtime issue fixes.
-- `docs/dependencies.md`: dependency map and version guidance.
-- `CMakeLists.txt`: a small cross-machine build entrypoint.
 
 ## Model
 
@@ -40,20 +28,11 @@ The simulation follows
 
 where:
 
-- `theta` controls the speed of mean reversion.
-- `mu` is the long-run mean level.
-- `sigma` is the volatility.
-- `W_t` is standard Brownian motion.
 
 The code uses Euler-Maruyama discretization to generate multiple paths and plot them on a shared figure.
 
 ## Prerequisites
 
-- A C++20 compiler
-- CMake 3.20 or newer
-- Python 3 with development headers
-- NumPy
-- Matplotlib
 
 `matplotlib-cpp` embeds Python, so Python, NumPy, and Matplotlib must be available at build and run time.
 
@@ -64,11 +43,6 @@ For first-time setup, see `docs/setup.md`.
 
 ## Support Matrix
 
-- CMake: 3.20+
-- C++: C++20 compiler
-- Python: 3.9+
-- NumPy: 1.23+
-- Matplotlib: 3.6+
 
 CI workflow: `.github/workflows/build.yml`
 
@@ -134,11 +108,3 @@ Ornstein-Uhlenbeck simulation sample:
 ![OU Tutorial Plot](docs/images/ou_tutorial.png)
 
 CI uploads generated plot images as workflow artifacts for each run.
-
-## Public Project Notes
-
-- License: MIT (see `LICENSE`).
-- Third-party attribution: see `ATTRIBUTION.md`.
-- Contribution guide: see `CONTRIBUTING.md`.
-- Changelog: see `CHANGELOG.md`.
-- Release checklist: see `docs/release-checklist.md`.
